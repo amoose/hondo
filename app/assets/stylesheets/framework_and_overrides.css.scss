@@ -79,3 +79,23 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+// font-family: 'Ubuntu', sans-serif;
+// font-family: 'Sigmar One', cursive;
+// font-family: 'Ubuntu Condensed', sans-serif;
+
+body {
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+h1, h2, h3, h4 {
+  font-family: 'Sigmar One', cursive;
+}
+.main-logo {
+  font-size: 9.0em;
+  text-align: center;
+  margin: auto;
+}
+.main-logo span {
+  font-size: 1.0em;
+}
+main { height: 100%; }
