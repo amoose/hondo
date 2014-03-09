@@ -122,6 +122,7 @@ GEM
     minitest (4.7.5)
     mono_logger (1.1.0)
     multi_json (1.9.0)
+    mysql2 (0.3.15)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
@@ -263,6 +264,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 1.2)
   jquery-rails
+  mysql2
   quiet_assets
   rails (= 4.0.3)
   rails_layout
