@@ -15,12 +15,18 @@ gem 'devise_invitable'
 gem 'figaro'
 gem 'rolify'
 gem 'slim-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'capistrano',  '~> 3.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm'
+  gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
+  # gem 'capistrano-bundler'
 end
 group :development, :test do
   gem 'factory_girl_rails'
