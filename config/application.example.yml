@@ -8,10 +8,21 @@
 
 # Add application configuration variables here, as shown below.
 #
-GMAIL_USERNAME: Your_Username
-GMAIL_PASSWORD: Your_Password
+SMTP_SERVER: email-smtp.us-east-1.amazonaws.com
+SMTP_PORT: 465
+SMTP_USERNAME: user
+SMTP_PASSWORD: pass
+
+GMAIL_USERNAME: dev
+GMAIL_PASSWORD: devpass
+
+DEVISE_SECRET_KEY: rake secret
+
+DEFAULT_FROM_EMAIL: user@domain
+
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
-ROLES: [admin, user, VIP]
+
+ROLES: [admin, member, contributor]
 

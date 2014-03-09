@@ -27,7 +27,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm'
   gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
-  # gem 'capistrano-bundler'
 end
 group :development, :test do
   gem 'factory_girl_rails'
