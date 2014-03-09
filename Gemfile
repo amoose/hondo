@@ -15,6 +15,7 @@ gem 'devise_invitable'
 gem 'figaro'
 gem 'rolify'
 gem 'slim-rails'
+gem 'therubyracer'
 
 group :development do
   gem 'better_errors'
