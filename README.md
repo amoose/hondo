@@ -1,7 +1,6 @@
 Hondo
 =========
-
-<img src="http://blogs.computerworld.com/sites/computerworld.com/files/u23/hondo-amd-z-60.jpg" />
+The gift of the Cochise. 
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
