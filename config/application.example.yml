@@ -24,5 +24,4 @@ ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
 
-ROLES: [admin, member, contributor]
-
+ROLES: [admin, subscriber, contributor]
