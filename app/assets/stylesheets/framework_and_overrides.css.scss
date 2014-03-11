@@ -34,10 +34,11 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  background-color: white;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  min-height: 600px;
   }
 section {
   @extend .row;
@@ -90,17 +91,47 @@ body {
 }
 h1, h2, h3, h4 {
   font-family: 'Sigmar One', cursive;
+  color: #ce3f00;
+
+}
+.cloud {
+  background: asset-url('cloud-solid.png');
+  width: 512px;
+  height: 512px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
 }
 .main-logo {
-  font-size: 4.0em;
+  font-size: 110px;
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
+  width: 512px;
+  position: absolute;
+  top: 208px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: -5px;
+  text-shadow: 1px 2px 4px #622105;
 }
-.main-logo span {
-  font-size: 1.0em;
+.main-logo .dot-io {
+  font-size: 36px;
 }
-main { height: 100%; }
+main,body { height: 100%; background: #d0e0e7; }
+
 
 h2 {
   text-align: center;
+}
+
+.navbar {
+  background: #008fce;
+  color: #FFFFFF;
+  border-bottom: 1px solid #067bae;
+  a {
+    color: #FFFFFF !important;
+    &:hover, &.active {
+      background: #2babe3 !important;
+    }
+  }
 }

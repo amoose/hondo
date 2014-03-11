@@ -18,7 +18,5 @@
 
 
 $(function () {
-	$('main').height($(window).height());
-
-	$('.main-logo').css('marginTop',$('main').height()/3).css('marginBottom',$('main').height()/3);
+	
 });
