@@ -101,6 +101,10 @@ h1, h2, h3, h4 {
   display: block;
   margin: 0 auto;
   position: relative;
+  &.small {
+    width: 128px;
+    height: 80px;
+  }
 }
 .main-logo {
   font-size: 110px;
@@ -113,6 +117,12 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: -5px;
   text-shadow: 1px 2px 4px #622105;
+}
+.small .main-logo {
+  width: 128px;
+  height: 80px;
+  top: 50%;
+  font-size: 24px;
 }
 .main-logo .dot-io {
   font-size: 36px;
@@ -133,5 +143,14 @@ h2 {
     &:hover, &.active {
       background: #2babe3 !important;
     }
+  }
+}
+nav {
+  font-size: 2.0em;
+  margin: 10px 0;
+  text-align: center;
+  position: relative;
+  a {
+    padding: 0 20px;
   }
 }
