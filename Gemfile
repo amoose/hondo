@@ -16,6 +16,8 @@ gem 'figaro'
 gem 'rolify'
 gem 'slim-rails'
 gem 'therubyracer'
+gem 'websocket-rails'
+gem 'valid_email'
 
 group :development do
   gem 'better_errors'

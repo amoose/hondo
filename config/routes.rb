@@ -4,7 +4,7 @@ Hondo::Application.routes.draw do
   match "/request-an-invite/thank-you/(:email)", :to => "home#thanks", :via => :get
   devise_for :users
   root :to => "home#index"
-  resources :interests, :only => [:create]
+  resources :interests, :only => [:create, :new]
 
   devise_scope :user do
     match "/login", :to => "devise/sessions#new", :via => :get

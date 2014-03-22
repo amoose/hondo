@@ -43,4 +43,5 @@ Hondo::Application.configure do
   # Send email in development mode?
   config.action_mailer.perform_deliveries = true
 
+  config.middleware.delete Rack::Lock
 end

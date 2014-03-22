@@ -1,7 +1,24 @@
 class InterestsController < ApplicationController
 	def create
-		# Interest.create(params[:interest])
-		# redirect_to "/request-an-invite/thank-you/#{params[:interest][:email]}"
-		redirect_to "/request-an-invite/?error=true&message=Not+accepting+invite+signups+at+this+time."
-	end
+		@interest = Interest.new(interest_params)
+		respond_to do |format|
+			 if @interest.save
+        format.html { redirect_to "/request-an-invite/thank-you/#{@interest.email}"}
+        format.json { render action: 'show', status: :created, location: @interest }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @interest.errors, status: :unprocessable_entity }
+      end
+		end
+  end
+
+  def new
+
+  end
+
+  private
+
+    def interest_params
+      params.require(:interest).permit(:email)
+    end
 end

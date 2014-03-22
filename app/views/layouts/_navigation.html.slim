@@ -1,19 +1,2 @@
-/ / navigation styled for Bootstrap 3.0
-/ nav.navbar.navbar-inverse.navbar-fixed-top
-/   .container
-/     .navbar-header
-/       button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
-/         span.sr-only Toggle navigation
-/         span.icon-bar
-/         span.icon-bar
-/         span.icon-bar
-/     .collapse.navbar-collapse
-/       ul.nav.navbar-nav
-/         == render 'layouts/navigation_links'
-
-.container
-  nav
-    .cloud.small
-      = link_to 'Hondo', root_url, :class => 'main-logo'
-    = link_to 'Login', "/login/", :class => 'login-link'
-    / - link_to 'Home', root_path, :class => 'home-link'
+.container.nav
+  = link_to image_tag('hondo-small.png'), root_url

@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+//= require websocket_rails/main
+
 
 
 $(function () {
