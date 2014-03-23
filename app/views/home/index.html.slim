@@ -1,7 +1,11 @@
 .container-fluid
 	.row
 		.col-md-6.col-md-offset-3
-			/ .cloud
-			/ 	h1 class="main-logo"
-			/ 		| Hondo
-			= render :partial => 'form'
+			- if user_signed_in?
+				.cloud
+					h1 class="main-logo"
+						| Hondo
+				br
+				h3 align="center" IN DEVELOPMENT
+			- else
+				= render :partial => 'form'

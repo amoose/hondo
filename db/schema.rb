@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311003836) do
+ActiveRecord::Schema.define(version: 20140323002150) do
 
   create_table "interests", force: true do |t|
     t.string   "email"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 20140311003836) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.integer  "failed_attempts",        default: 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

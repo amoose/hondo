@@ -1,2 +1,15 @@
-.container.nav
-  = link_to image_tag('hondo-small.png'), root_url
+- if user_signed_in?
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          == render 'layouts/navigation_links'
+- else
+  .container.nav
+    = link_to image_tag('hondo-small.png'), root_url

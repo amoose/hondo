@@ -1,0 +1,19 @@
+/ .authform
+/ 	= simple_form_for(@resource) do |f|
+/ 		= f.error_notification
+/ 		div
+/ 			= f.label :email
+/ 			br/
+/ 			= f.email_field :email, :placeholder => "Enter your email address..."
+
+/ 		div= f.submit "Request an Invite"
+
+
+= simple_form_for(@resource) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email
+
+  .form-actions
+    = f.button :submit, :value => "Request Invite"

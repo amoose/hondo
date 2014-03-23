@@ -1,8 +1,0 @@
-.authform
-	= form_for(@resource) do |f|
-		div
-			= f.label :email
-			br/
-			= f.email_field :email, :placeholder => "Enter your email address..."
-
-		div= f.submit "Request an Invite"
