@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311003836) do
+ActiveRecord::Schema.define(version: 20140707000147) do
+
+  create_table "images", force: true do |t|
+    t.text     "url"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "interests", force: true do |t|
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media", force: true do |t|
+    t.string   "name"
+    t.string   "uid"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +45,25 @@ ActiveRecord::Schema.define(version: 20140311003836) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -56,6 +91,9 @@ ActiveRecord::Schema.define(version: 20140311003836) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.datetime "locked_at"
+    t.string   "unlock_token"
+    t.integer  "failed_attempts",        default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -63,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140311003836) do
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
   create_table "users_roles", id: false, force: true do |t|
     t.integer "user_id"

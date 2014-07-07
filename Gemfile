@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.2'
 gem 'rails', '4.0.3'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'rolify'
 gem 'slim-rails'
 gem 'therubyracer'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'better_errors'
@@ -27,6 +28,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm'
   gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
+  gem 'thin'
 end
 group :development, :test do
   gem 'factory_girl_rails'
