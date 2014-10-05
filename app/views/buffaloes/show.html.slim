@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Uid:
+  = @buffalo.uid
+p
+  strong Token:
+  = @buffalo.token
+p
+  strong Label:
+  = @buffalo.label
+p
+  strong Last ip:
+  = @buffalo.last_ip
+p
+  strong User:
+  = @buffalo.user_id
+p
+  strong Location:
+  = @buffalo.location
+
+= link_to 'Edit', edit_buffalo_path(@buffalo)
+'|
+= link_to 'Back', buffaloes_path

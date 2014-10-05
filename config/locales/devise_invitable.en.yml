@@ -15,3 +15,21 @@ en:
     mailer:
       invitation_instructions:
         subject: 'Invitation instructions'
+
+en-vulgar:
+  devise:
+    invitations:
+      send_instructions: 'An invitation email has been sent to %{email}.'
+      invitation_token_invalid: 'The invitation token provided is not valid!'
+      updated: 'Your password was set successfully. You are now signed in.'
+      no_invitations_remaining: "No fucking invitations remaining"
+      invitation_removed: 'Your invitation was fucking removed.'
+      new:
+        header: "Send fucking invitation"
+        submit_button: "Send a fucking invitation"
+      edit:
+        header: "Set your password"
+        submit_button: "Set my fucking password"
+    mailer:
+      invitation_instructions:
+        subject: 'Invitation instructions'

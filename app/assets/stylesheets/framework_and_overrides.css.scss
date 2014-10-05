@@ -162,3 +162,10 @@ nav {
 .container.nav {
   margin-top: 1.0em
 }
+
+a.btn-primary {
+  color: #E1E1E1 !important;
+  &:hover {
+    color: #FFFFFF;
+  }
+}

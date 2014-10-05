@@ -15,6 +15,7 @@ class MediaController < ApplicationController
   # GET /media/new
   def new
     @medium = Medium.new
+    @medium.torrent = Torrent.new
   end
 
   # GET /media/1/edit
@@ -25,7 +26,7 @@ class MediaController < ApplicationController
   # POST /media.json
   def create
     @medium = Medium.new(medium_params)
-
+    @medium.user = current_user
     respond_to do |format|
       if @medium.save
         format.html { redirect_to @medium, notice: 'Medium was successfully created.' }
@@ -40,6 +41,7 @@ class MediaController < ApplicationController
   # PATCH/PUT /media/1
   # PATCH/PUT /media/1.json
   def update
+    @medium.user = current_user
     respond_to do |format|
       if @medium.update(medium_params)
         format.html { redirect_to @medium, notice: 'Medium was successfully updated.' }
@@ -65,10 +67,11 @@ class MediaController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_medium
       @medium = Medium.find(params[:id])
+      @medium.torrent = Torrent.new if @medium.torrent.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medium_params
-      params.require(:medium).permit(:name, :uid, :user_id)
+      params.require(:medium).permit(:name, :uid, :user_id, :media_type, :torrent)
     end
 end

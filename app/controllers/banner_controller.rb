@@ -5,7 +5,7 @@ class BannerController < WebsocketRails::BaseController
   end
 
   def client_connected
-  	# send_message :welcome, {:message => 'welcome'}
+  	send_message :welcome, {:message => 'welcome'}
   end
 
   def new_banner

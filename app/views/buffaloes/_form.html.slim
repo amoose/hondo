@@ -1,0 +1,12 @@
+= simple_form_for(@buffalo) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :label
+    = f.input :last_ip
+    = f.input :location
+
+    = f.input :user_id, :as => :hidden, :input_html => { :value=> "#{current_user.id}" }
+
+  .form-actions
+    = f.button :submit

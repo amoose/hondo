@@ -1,13 +1,19 @@
 li
-  = link_to 'Home', root_path, class: 'navbar-brand'
+  = nav_link_to 'Home', root_path, class: 'navbar-brand'
 
 - if user_signed_in?
   li
-    = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+    = nav_link_to "Media", media_path, {},  { :controller_segment => 1 }
   li
-    = link_to 'Edit account', edit_user_registration_path
+    = nav_link_to "Buffaloes (#{current_user.buffaloes.count})", buffaloes_path, {}
+  li
+    = nav_link_to "New Invite (#{current_user.invitations_remaining})", new_user_invitation_path
+  li
+    = nav_link_to 'Edit account', edit_user_registration_path
+  li
+    = nav_link_to 'Logout', destroy_user_session_path, :method=>'delete'
 - else
   li
-    = link_to 'Login', "/login"
+    = nav_link_to 'Login', "/login"
   li
-    = link_to 'Sign up', new_user_registration_path
+    = nav_link_to 'Sign up', new_user_registration_pathab

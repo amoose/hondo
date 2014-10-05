@@ -1,4 +1,6 @@
 Hondo::Application.routes.draw do
+  resources :buffaloes
+
   resources :media
 
   match "/users/sign_up" => redirect {|p,s| "/request-an-invite/ "}, :via => :get

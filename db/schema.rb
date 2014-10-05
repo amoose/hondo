@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707000147) do
+ActiveRecord::Schema.define(version: 20140715021328) do
+
+  create_table "buffaloes", force: true do |t|
+    t.string   "uid"
+    t.string   "token"
+    t.string   "label"
+    t.string   "last_ip"
+    t.integer  "user_id"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", force: true do |t|
     t.text     "url"
@@ -31,6 +42,15 @@ ActiveRecord::Schema.define(version: 20140707000147) do
     t.string   "name"
     t.string   "uid"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "torrent_id"
+    t.string   "media_type"
+  end
+
+  create_table "media_requests", force: true do |t|
+    t.string   "name"
+    t.integer  "media_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,6 +85,16 @@ ActiveRecord::Schema.define(version: 20140707000147) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
+  create_table "torrents", force: true do |t|
+    t.string   "filename"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+    t.integer  "torrent_id"
+    t.integer  "medium_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: ""
@@ -94,6 +124,7 @@ ActiveRecord::Schema.define(version: 20140707000147) do
     t.datetime "locked_at"
     t.string   "unlock_token"
     t.integer  "failed_attempts",        default: 0
+    t.string   "token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,2 @@
+module BuffaloesHelper
+end

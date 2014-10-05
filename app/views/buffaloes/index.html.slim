@@ -1,0 +1,29 @@
+h1 My Buffaloes
+
+- if @buffaloes.any?
+  table.table
+    tr
+      th Label
+      th Last ip
+      th User
+      th Location
+      th
+      th
+      th
+
+    - @buffaloes.each do |buffalo|
+      tr
+        td = buffalo.label
+        td = buffalo.last_ip
+        td = buffalo.user_id
+        td = buffalo.location
+        td = link_to 'Show', buffalo
+        td = link_to 'Edit', edit_buffalo_path(buffalo)
+        td = link_to 'Destroy', buffalo, data: {:confirm => 'Are you sure?'}, :method => :delete
+- else
+  h3 You currently have no Buffaloes configured!
+  p.wizard Click 'New Buffalo' to get started stocking up on your media for the winter!
+
+br
+
+= link_to 'New Buffalo', new_buffalo_path, :class => 'btn btn-primary'

@@ -2,142 +2,36 @@ Hondo
 =========
 The gift of the Cochise. 
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Hondo is the media management hub for all of your [Buffaloes](https://github.com/amoose/buffalo). With Hondo, you can manage all of your media distribution needs from a single, beautiful, web interface. Each one of your Buffaloes, patiently await commands to download (and distribute) your media across your Hondo Community. 
 
-Diagnostics
------------
 
-This application was built with recipes that are known to work together.
+## Common applications
 
-This application was built with preferences that are NOT known to work
-together.
+  - Create a Buffalo on your HTPC to manage your home media. 
+  - Add a Buffalo on your Grandmother's PC and push pictures of the grandkids to her screensaver. 
+  - Long distance relationship? Get her a Buffalo for her birthday and watch shows *together* over the interwebs. 
 
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include these diagnostics:
+    > Manage them all with Hondo!
 
-We’d also like to know if you’ve found combinations of recipes or
-preferences that do work together.
 
-Recipes:
 
-* apps4
-* controllers
-* core
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* models
-* prelaunch
-* railsapps
-* readme
-* routes
-* saas
-* setup
-* testing
-* views
+### How it works
 
-Preferences:
+  - Hondo and his trusty sidekick, [Banner](https://github.com/amoose/banner), create a [Content Delivery Network](http://en.wikipedia.org/wiki/Content_delivery_network) for your media. 
+  - Each [Buffalo](https://github.com/amoose/buffalo) authenticates with Hondo to dilligently download and distribute your media. 
+  
+  
+### Contributing
 
-* git: true
-* apps4: none
-* dev_webserver: webrick
-* prod_webserver: passenger
-* database: sqlite
-* templates: slim
-* unit_test: rspec
-* integration: rspec-capybara
-* continuous_testing: none
-* fixtures: factory_girl
-* frontend: bootstrap3
-* email: gmail
-* authentication: devise
-* devise_modules: invitable
-* authorization: cancan
-* form_builder: none
-* starter_app: home_app
-* rvmrc: true
-* quiet_assets: true
-* local_env_file: figaro
-* better_errors: true
-* ban_spiders: true
-* github: true
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
-Ruby on Rails
--------------
+### License
 
-This application requires:
 
--   Ruby
--   Rails
+MIT
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Database
---------
-
-This application uses SQLite with ActiveRecord.
-
-Development
------------
-
--   Template Engine: Slim
--   Testing Framework: RSpec and Factory Girl
--   Front-end Framework: Bootstrap 3.0 (Sass)
--   Form Builder: None
--   Authentication: Devise
--   Authorization: CanCan
--   Admin: None
-
-Email
------
-
-The application is configured to send email using a Gmail account.
-
-Email delivery is disabled in development.
-
-Getting Started
----------------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Documentation and Support
--------------------------
-
-This is the only documentation.
-
-#### Issues
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Similar Projects
-----------------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Contributing
-------------
-
-If you make improvements to this application, please share with others.
-
--   Fork the project on GitHub.
--   Make your feature addition or bug fix.
--   Commit with Git.
--   Send the author a pull request.
-
-If you add functionality to this application, create an alternative
-implementation, or build an application that is similar, please contact
-me and I’ll add a note to the README so that others can find your work.
-
-Credits
--------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-License
--------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+*Free Software, Hell Yeah!*
