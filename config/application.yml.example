@@ -25,3 +25,5 @@ ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
 
 ROLES: [admin, subscriber, contributor]
+
+TMDB_API_KEY: xxxxx

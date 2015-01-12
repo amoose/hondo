@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Terms:
+  = @search.terms
+p
+  strong Options:
+  = @search.options
+p
+  strong Result:
+  = @search.result
+
+= link_to 'Edit', edit_search_path(@search)
+'|
+= link_to 'Back', searches_path

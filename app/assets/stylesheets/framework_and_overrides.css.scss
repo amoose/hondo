@@ -86,7 +86,7 @@ section {
 // font-family: 'Ubuntu Condensed', sans-serif;
 
 body {
-  font-family: 'Ubuntu Condensed', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   min-height: 800px;
 }
 h1, h2, h3, h4 {
@@ -133,7 +133,7 @@ h1, h2, h3, h4 {
 .main-logo .dot-io {
   font-size: 36px;
 }
-main,body { height: 100%; background: #d0e0e7; }
+main,body { height: 100%; background: #FFFFFF; }
 
 
 h2 {
@@ -167,5 +167,83 @@ a.btn-primary {
   color: #E1E1E1 !important;
   &:hover {
     color: #FFFFFF;
+  }
+}
+
+
+
+body {
+  position: relative;
+  z-index: 1;
+  .loading-overlay {
+    display: none;
+  }
+  &.loading .loading-overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 999;
+    opacity: 0.5;
+    h4 {
+      padding: 5.0em 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  form {
+    input, select, option {
+      font-family: 'Ubuntu Condensed', sans-serif;
+    }
+  }
+  #new_search {
+    width: 600px;
+    margin: 50px auto;
+    .form-inputs {
+      input[type=text] {
+        padding: 0.6em 0.8em;
+        font-size: 2.0em;
+      }
+    }
+    .form-actions .btn {
+      font-size: 2.0em;
+    }
+    .form-inputs,
+    .form-actions {
+      display: inline-block;
+    }
+    .search_terms > label { display: none; }
+  }
+  #results {
+    .movie {
+      display: block;
+      border-bottom: 1px solid #f2f2f2;
+      margin-bottom: 20px;
+      color: #CCC;
+      h3 {
+        font-family: 'Ubuntu Condensed', sans-serif;  
+        color: #545454;
+      }
+      
+      img {
+        width: 125px;
+        height: 177px;
+        float: left;
+        margin: 0 20px 10px;
+      }
+      .vote-average {
+        display: block;
+      }
+      .release-date {
+        display: block;
+      }
+      &.result-0 {
+        img {
+          width: 224px;
+          height: 336px;
+        }
+      }
+    }
   }
 }

@@ -23,4 +23,11 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
+    placeholders:
+      search:
+        terms: Enter search terms
 
+  helpers:
+    submit:
+      search:
+        create: "Search"

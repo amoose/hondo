@@ -11,54 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715021328) do
+ActiveRecord::Schema.define(version: 20150111212127) do
 
-  create_table "buffaloes", force: true do |t|
-    t.string   "uid"
-    t.string   "token"
-    t.string   "label"
-    t.string   "last_ip"
+  create_table "buffaloes", force: :cascade do |t|
+    t.string   "uid",        limit: 255
+    t.string   "token",      limit: 255
+    t.string   "label",      limit: 255
+    t.string   "last_ip",    limit: 255
     t.integer  "user_id"
-    t.string   "location"
+    t.string   "location",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",     limit: 255
   end
 
-  create_table "images", force: true do |t|
+  create_table "images", force: :cascade do |t|
     t.text     "url"
     t.integer  "imageable_id"
-    t.string   "imageable_type"
+    t.string   "imageable_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "interests", force: true do |t|
-    t.string   "email"
+  create_table "interests", force: :cascade do |t|
+    t.string   "email",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "media", force: true do |t|
-    t.string   "name"
-    t.string   "uid"
+  create_table "media", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "uid",        limit: 255
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "torrent_id"
-    t.string   "media_type"
+    t.string   "media_type", limit: 255
   end
 
-  create_table "media_requests", force: true do |t|
-    t.string   "name"
+  create_table "media_requests", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.integer  "media_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "roles", force: true do |t|
-    t.string   "name"
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",          limit: 255
     t.integer  "resource_id"
-    t.string   "resource_type"
+    t.string   "resource_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,65 +67,73 @@ ActiveRecord::Schema.define(version: 20140715021328) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
-  create_table "taggings", force: true do |t|
+  create_table "searches", force: :cascade do |t|
+    t.string   "terms"
+    t.text     "options"
+    t.text     "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
-    t.string   "taggable_type"
+    t.string   "taggable_type", limit: 255
     t.integer  "tagger_id"
-    t.string   "tagger_type"
+    t.string   "tagger_type",   limit: 255
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
 
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
 
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
+  create_table "tags", force: :cascade do |t|
+    t.string  "name",           limit: 255
+    t.integer "taggings_count",             default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
-  create_table "torrents", force: true do |t|
-    t.string   "filename"
-    t.string   "uid"
+  create_table "torrents", force: :cascade do |t|
+    t.string   "filename",   limit: 255
+    t.string   "uid",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token"
+    t.string   "token",      limit: 255
     t.integer  "torrent_id"
     t.integer  "medium_id"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: ""
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: ""
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "confirmation_token"
+    t.string   "name",                   limit: 255
+    t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.string   "invitation_token"
+    t.string   "unconfirmed_email",      limit: 255
+    t.string   "invitation_token",       limit: 255
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
-    t.string   "invited_by_type"
-    t.integer  "invitations_count",      default: 0
+    t.string   "invited_by_type",        limit: 255
+    t.integer  "invitations_count",                  default: 0
     t.datetime "locked_at"
-    t.string   "unlock_token"
-    t.integer  "failed_attempts",        default: 0
-    t.string   "token"
+    t.string   "unlock_token",           limit: 255
+    t.integer  "failed_attempts",                    default: 0
+    t.string   "token",                  limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -134,7 +143,7 @@ ActiveRecord::Schema.define(version: 20140715021328) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
-  create_table "users_roles", id: false, force: true do |t|
+  create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end

@@ -1,0 +1,60 @@
+= simple_form_for(@search) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :terms
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+
+javascript:
+  $(function () {
+    $('#new_search').submit(function (event) {
+      $('body').addClass('loading');
+      var search_url = "#{searches_path}";
+
+      $('#results *').fadeOut('fast').html('').show();
+
+      event.preventDefault();
+      var terms = $('#search_terms').val();
+      $.ajax(search_url, {
+        type: 'POST',
+        data: JSON.stringify({ 'terms': terms }),
+        contentType: 'application/json',
+        success: function(data) {
+          var results_json = $.parseJSON( data.result )
+
+          $('body').removeClass('loading');
+
+          showResults(results_json);
+        },
+          error: function() {
+          $('#notification-bar').text('An error occurred');
+          $('body').removeClass('loading');
+        }
+       });
+    });
+
+  });
+
+  function showResults(data) {
+    var base_url = "#{@configuration.secure_base_url}";
+    base_url = base_url + "/#{@configuration.poster_sizes[4]}";
+
+    for (var i=0;i<data.length;i++) {
+      var d = data[i];
+
+      var $movie = $('<div data-tmdbid="'+d['id']+'" class="movie result-'+i+'"></div>'); 
+
+      var $poster = $('<img src="'+base_url+d['poster_path']+'" />');
+      var $title = $('<h3>'+d['title']+'</h3>');
+      var $vote_average = $('<span class="vote-average">'+d['vote_average']+'</span>')
+      var $release_date = $('<span class="release-date">'+d['release_date']+'</span>')
+      var $hondo_links = $('<span class="hondo hondo-links"></span>')
+      var $br = $('<br clear="both" />');
+
+      $movie.append($poster, $title, $vote_average, $release_date, $hondo_links, $br);
+
+      $('#results').append($movie);
+    }
+  }
